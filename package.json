@@ -1,0 +1,50 @@
+{
+  "name": "mylaw-conference",
+  "version": "1.0.0",
+  "description": "Backend Challenge for MyLaw",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run build-babel",
+    "build-babel": "babel -d ./build ./src -s",
+    "clean": "rm -rf .nyc_output build coverage && mkdir build",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "dev": "DEBUG=dev nodemon --exec babel-node ./src/index.js",
+    "lint": "eslint \"**/*.js\" --fix",
+    "start": "node ./build/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/meetKazuki/mylaw-conference.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/meetKazuki/mylaw-conference/issues"
+  },
+  "homepage": "https://github.com/meetKazuki/mylaw-conference#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.7.4",
+    "debug": "^4.1.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-validator": "^6.3.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.1",
+    "pg": "^7.14.0",
+    "sequelize": "^5.21.2",
+    "sequelize-cli": "^5.5.1",
+    "swagger-ui-express": "^4.1.2"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/node": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "eslint": "^6.7.2",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2"
+  }
+}
