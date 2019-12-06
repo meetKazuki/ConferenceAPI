@@ -1,0 +1,26 @@
+.App {
+  margin: 3rem;
+  text-align: center;
+}
+
+nav {
+  margin-right: 2rem;
+}
+input {
+  border-radius: 0;
+  height: 3em;
+}
+form {
+  padding: 1rem;
+}
+
+.form-control {
+  margin: 0 auto
+}
+.list-group-item p {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 0;
+}
+.list-group-item {}
