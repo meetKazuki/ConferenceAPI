@@ -1,5 +1,6 @@
 import DB from '../database';
 import { NotFoundError } from '../helpers/error';
+import Attendee from '../database/models/Attendee';
 import Talk from '../database/models/Talk';
 
 export default {
@@ -54,6 +55,20 @@ export default {
     return res.status(200).json({
       status: 'success',
       message: `talk event with ID ${talkId} has been deleted`,
+    });
+  },
+
+  addAttendee: (req, res, next) => {
+    const talk = Talk.find(parseInt(req.params.talkId, 10));
+    if (!talk) return next(new NotFoundError('talk event does not exist'));
+
+    const user = Attendee.findOne('email', req.body.email);
+    if (!user) return next(new NotFoundError('attendee does not exist'));
+
+    const attendee = DB.talks.attendees.push(user);
+    return res.status(201).json({
+      status: 'success',
+      message: `${attendee} successfully added`,
     });
   },
 };

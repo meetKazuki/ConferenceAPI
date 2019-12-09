@@ -7,6 +7,7 @@ export default class Talk {
     this.topic = attributes.topic;
     this.location = attributes.location;
     this.hostId = attributes.hostId;
+    this.attendees = [];
   }
 
   static incrementCount() {
