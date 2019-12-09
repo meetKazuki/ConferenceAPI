@@ -7,13 +7,18 @@ const talk = Router();
 
 const { addTalkSchema, paramSchema, updateTalkSchema } = talkSchema;
 const {
-  addTalk, getAllTalks, getATalk, updateATalk, deleteATalk,
+  addTalk, getAllTalks, getATalk, updateATalk, deleteATalk, addAttendee,
 } = talkController;
 
 talk.post(
   '/',
   validator(addTalkSchema),
   addTalk,
+);
+
+talk.post(
+  '/:talkId/attendee',
+  addAttendee,
 );
 
 talk.get(
